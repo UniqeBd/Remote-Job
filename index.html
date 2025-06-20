@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Global Job Offers & Rewards</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/> 
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet"/>
+    <!-- Favicon (Font Awesome briefcase as base64) -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💼</text></svg>">
+  
+  <!-- Adsterra Social Bar -->
+  <script type='text/javascript' src='//pl26965868.profitableratecpm.com/90/e2/25/90e225f9146be46eec63f3dabf963aa0.js'></script>
+  
+  <style>
+    :root {
+      --primary: #2563eb; 
+      --secondary: #f59e0b;
+      --dark: #1e293b;
+      --light: #f8fafc;
+      --accent: #ec4899;
+      --success: #10b981;
+      --bg-color: #f3f4f6;
+      --text-color: #1e293b;
+      --card-bg: white;
+      --header-bg: linear-gradient(135deg, var(--primary), #3b82f6);
+      --section-bg: white;
+      --border-color: #e2e8f0;
+    }
+
+    [data-theme="dark"] {
+      --bg-color: #0f172a;
+      --text-color: #e2e8f0;
+      --card-bg: #1e293b;
+      --header-bg: linear-gradient(135deg, #1e3a8a, #1e40af);
+      --section-bg: #1e293b;
+      --border-color: #334155;
+      --dark: #f8fafc;
+      --light: #1e293b;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+      transition: background-color 0.3s ease, color 0.2s ease;
+    }
+
+    body {
+      background: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.6;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    /* Theme Toggle */
+    .theme-toggle {
+      position: fixed;
+      top: 20px;
+      right: 80px;
+      background: var(--card-bg);
+      color: var(--text-color);
+      border: none;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+    }
+
+    /* Hamburger Menu */
+    .menu-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: var(--card-bg);
+      color: var(--text-color);
+      border: none;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+    }
+
+    .dropdown-menu {
+      position: fixed;
+      top: 70px;
+      right: 20px;
+      background: var(--card-bg);
+      border-radius: 10px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      padding: 15px 0;
+      width: 200px;
+      z-index: 1000;
+      display: none;
+      opacity: 0;
+      transform: translateY(-20px);
+      transition: all 0.3s ease;
+    }
+
+    .dropdown-menu.show {
+      display: block;
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .dropdown-menu a {
+      display: block;
+      padding: 10px 20px;
+      color: var(--text-color);
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .dropdown-menu a:hover {
+      background: rgba(0, 0, 0, 0.05);
+      color: var(--primary);
+    }
+
+    header {
+      text-align: center;
+      padding: 40px 0;
+      position: relative;
+      overflow: hidden;
+      border-radius: 0 0 20px 20px;
+      background: var(--header-bg);
+      color: white;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      margin-bottom: 40px;
+    }
+
+    header::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('https://images.unsplash.com/photo-1507679799987-c73779587ccf?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80') center/cover;
+      opacity: 0.15;
+      z-index: 0;
+    }
+
+    header h1 {
+      font-size: 2.8rem;
+      margin-bottom: 15px;
+      position: relative;
+      z-index: 1;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    header p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+      opacity: 0.9;
+    }
+
+    /* Particle Animation */
+    .particle {
+      position: absolute;
+      background: rgba(255, 255, 255, 0.6);
+      border-radius: 50%;
+      z-index: 0;
+    }
+
+    [data-theme="dark"] .particle {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    /* Job Offer Sections */
+    .section {
+      background: var(--section-bg);
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      margin-bottom: 30px;
+      overflow: hidden;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      position: relative;
+      z-index: 1;
+    }
+
+    .section:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    }
+
+    .section-header {
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      color: white;
+      padding: 18px 25px;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .section-header::after {
+      content: "";
+      position: absolute;
+      top: -50%;
+      right: -50%;
+      width: 100%;
+      height: 200%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+      transform: rotate(30deg);
+      z-index: 1;
+    }
+
+    .section-header h2 {
+      font-size: 1.8rem;
+      margin-left: 15px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .section-icon {
+      font-size: 24px;
+      background: white;
+      color: var(--primary);
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      z-index: 2;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .offers-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 25px;
+      padding: 30px;
+    }
+
+    .offer-card {
+      background: var(--card-bg);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+      transition: all 0.4s ease;
+      border: 1px solid var(--border-color);
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      position: relative;
+    }
+
+    .offer-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+      border-color: var(--primary);
+    }
+
+    .card-image {
+      height: 200px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .card-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    .offer-card:hover .card-image img {
+      transform: scale(1.1);
+    }
+
+    .card-badge {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: var(--accent);
+      color: white;
+      padding: 5px 12px;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      z-index: 2;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .card-content {
+      padding: 20px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card-content h3 {
+      color: var(--dark);
+      margin-bottom: 12px;
+      font-size: 1.4rem;
+    }
+
+    .card-content p {
+      color: var(--text-color);
+      opacity: 0.8;
+      flex-grow: 1;
+      margin-bottom: 20px;
+      font-size: 0.95rem;
+    }
+
+    .btn {
+      display: inline-block;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      color: white;
+      padding: 12px 25px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      text-align: center;
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+      box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .btn::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, var(--secondary), var(--primary));
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      z-index: -1;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(37, 99, 235, 0.4);
+    }
+
+    .btn:hover::before {
+      opacity: 1;
+    }
+
+    .btn i {
+      margin-left: 8px;
+      transition: transform 0.3s ease;
+    }
+
+    .btn:hover i {
+      transform: translateX(3px);
+    }
+
+    .footer-note {
+      text-align: center;
+      color: var(--text-color);
+      padding: 30px 0;
+      font-size: 0.9rem;
+      opacity: 0.8;
+      margin-top: 20px;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    /* Ad Container Styles */
+    .ad-container {
+      width: 100%;
+      max-width: 728px;
+      margin: 20px auto;
+      text-align: center;
+    }
+
+    .ad-banner {
+      width: 100%;
+      height: 90px;
+      background: #f8f9fa;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .native-banner-container {
+      margin: 20px auto;
+      max-width: 728px;
+      text-align: center;
+    }
+
+    @media (max-width: 768px) {
+      .offers-container {
+        grid-template-columns: 1fr;
+        padding: 20px;
+        gap: 20px;
+      }
+      header h1 {
+        font-size: 2.2rem;
+      }
+      .section-header h2 {
+        font-size: 1.5rem;
+      }
+      .card-image {
+        height: 180px;
+      }
+      .theme-toggle, .menu-toggle {
+        top: 10px;
+        width: 35px;
+        height: 35px;
+        font-size: 1rem;
+      }
+      .theme-toggle {
+        right: 60px;
+      }
+      .menu-toggle {
+        right: 10px;
+      }
+      .dropdown-menu {
+        top: 60px;
+        right: 10px;
+        width: 180px;
+      }
+      .ad-banner {
+        height: 60px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      header h1 {
+        font-size: 1.8rem;
+      }
+      header p {
+        font-size: 1rem;
+      }
+      .section-header {
+        padding: 15px 20px;
+      }
+      .section-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+      }
+      .card-content {
+        padding: 15px;
+      }
+      .btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Adsterra Popunder -->
+  <script type='text/javascript' src='//pl26965850.profitableratecpm.com/00/c1/09/00c109f248e98dbcda94e8ed87f37bf4.js'></script>
+
+  <!-- Theme Toggle Button -->
+  <button class="theme-toggle" id="themeToggle">
+    <i class="fas fa-moon"></i>
+  </button>
+
+  <!-- Hamburger Menu -->
+  <button class="menu-toggle" id="menuToggle">
+    <i class="fas fa-bars"></i>
+  </button>
+
+  <!-- Dropdown Menu -->
+  <div class="dropdown-menu" id="dropdownMenu">
+    <a href="#usa">USA</a> 
+    <a href="#australia">Australia</a>
+    <a href="#uk">UK</a>
+    <a href="#canada">Canada</a>
+    <a href="#global">Global</a>
+  </div>
+
+  <!-- Main Container -->
+  <div class="container">
+    <!-- Floating Particles -->
+    <div id="particles"></div>
+
+    <!-- Adsterra Top Banner -->
+    <div class="ad-container">
+      <script type="text/javascript">
+        atOptions = {
+          'key' : '713e49d7d11216cfbc75d49fb7efb8a1',
+          'format' : 'iframe',
+          'height' : 90,
+          'width' : 728,
+          'params' : {}
+        };
+      </script>
+      <script type="text/javascript" src="//www.highperformanceformat.com/713e49d7d11216cfbc75d49fb7efb8a1/invoke.js"></script>
+    </div>
+
+    <!-- Header -->
+    <header>
+      <h1>Global Job Offers & Rewards</h1>
+      <p>Discover exclusive job opportunities, remote work positions, and amazing rewards across the globe</p>
+    </header>
+
+    <!-- USA Section -->
+    <section class="section" id="usa">
+      <div class="section-header">
+        <div class="section-icon">
+          <i class="fas fa-flag"></i>
+        </div>
+        <h2>USA Job Offers</h2>
+      </div>
+      <div class="offers-container">
+        <div class="offer-card">
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80" alt="Expert Job Match">
+            <span class="card-badge">Featured</span>
+          </div>
+          <div class="card-content">
+            <h3>Expert Job Match</h3>
+            <p>Get matched with the perfect job based on your skills and experience.</p>
+            <a href="https://www.profitableratecpm.com/a0e661gugu?key=84338d055da36b0b50d2fcd3d745e40a" class="btn" target="_blank">Apply Now <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+        <div class="offer-card">
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80" alt="Work From Home">
+            <span class="card-badge">Popular</span>
+          </div>
+          <div class="card-content">
+            <h3>Work From Home</h3>
+            <p>Flexible remote work opportunities from the comfort of your home.</p>
+            <a href="https://www.profitableratecpm.com/a0e661gugu?key=84338d055da36b0b50d2fcd3d745e40a" class="btn" target="_blank">Apply Now <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+        <div class="offer-card">
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80" alt="Walmart Remote Job">
+            <span class="card-badge">Limited</span>
+          </div>
+          <div class="card-content">
+            <h3>Walmart Remote Job</h3>
+            <p>Join one of America's largest retailers in a remote position.</p>
+            <a href="https://www.profitableratecpm.com/a0e661gugu?key=84338d055da36b0b50d2fcd3d745e40a" class="btn" target="_blank">Apply Now <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+        <div class="offer-card">
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1605733513597-a8f8341084e6?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80" alt="Walmart Hollyday Gift">
+            <span class="card-badge">New</span>
+          </div>
+          <div class="card-content">
+            <h3>Walmart Holiday Gift</h3>
+            <p>Special holiday promotion for Walmart employees.</p>
+            <a href="https://www.profitableratecpm.com/a0e661gugu?key=84338d055da36b0b50d2fcd3d745e40a" class="btn" target="_blank">Claim Gift <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Australia Section -->
+    <section class="section" id="australia">
+      <div class="section-header">
+        <div class="section-icon">
+          <i class="fas fa-flag"></i>
+        </div>
+        <h2>Australia Job Offers</h2>
+      </div>
+      <div class="offers-container">
+        <div class="offer-card">
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1519699047748-de8e457a634e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80" alt="Wannahookup DOI Dating">
+            <span class="card-badge">Exclusive</span>
+          </div>
+          <div class="card-content">
+            <h3>Win $1000 Amazon Gift Card</h3>
+            <p>Special limited-time offer for Australian users.</p>
+            <a href="https://www.profitableratecpm.com/a0e661gugu?key=84338d055da36b0b50d2fcd3d745e40a" class="btn" target="_blank">Claim Now <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+        <div class="offer-card">
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80" alt="McDonald Job">
+            <span class="card-badge">Hot Deal</span>
+          </div>
+          <div class="card-content">
+            <h3>McDonald Job</h3>
+            <p>Join the world's largest fast-food chain in Australia.</p>
+            <a href="https://www.profitableratecpm.com/a0e661gugu?key=84338d055da36b0b50d2fcd3d745e40a" class="btn" target="_blank">Apply Now <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- United Kingdom Section -->
+    <section class="section" id="uk">
+      <div class="section-header">
+        <div class="section-icon">
+          <i class="fas fa-flag"></i>
+        </div>
+        <h2>United Kingdom Job Offers</h2>
+      </div>
+      <div class="offers-container">
+        <div class="offer-card">
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1613243555978-636c48dc653c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80" alt="Earn From Home Opportunity">
+            <span class="card-badge">Popular</span>
+          </div>
+          <div class="card-content">
+            <h3>Earn From Home Opportunity</h3>
+            <p>Remote work opportunities for UK residents.</p>
+            <a href="https://www.profitableratecpm.com/a0e661gugu?key=84338d055da36b0b50d2fcd3d745e40a" class="btn" target="_blank">Apply Now <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Canada Section -->
+    <section class="section" id="canada">
+      <div class="section-header">
+        <div class="section-icon">
+          <i class="fas fa-flag"></i>
+        </div>
+        <h2>Canada Job Offers</h2>
+      </div>
+      <div class="offers-container">
+        <div class="offer-card">
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1551782450-17144efb9c50?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80" alt="RewardFlux - CashApp $1000">
+            <span class="card-badge">Top Offer</span>
+          </div>
+          <div class="card-content">
+            <h3>RewardFlux - CashApp $1000</h3>
+            <p>Special limited-time offer for Canadian users.</p>
+            <a href="https://www.profitableratecpm.com/a0e661gugu?key=84338d055da36b0b50d2fcd3d745e40a" class="btn" target="_blank">Claim Now <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Global Offers Section -->
+    <section class="section" id="global">
+      <div class="section-header">
+        <div class="section-icon">
+          <i class="fas fa-globe"></i>
+        </div>
+        <h2>All Countries Can Apply</h2>
+      </div>
+      <div class="offers-container">
+        <div class="offer-card">
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80" alt="Walmart Job">
+            <span class="card-badge">Popular</span>
+          </div>
+          <div class="card-content">
+            <h3>Walmart Job</h3>
+            <p>Join one of the world's largest retailers.</p>
+            <a href="https://www.profitableratecpm.com/a0e661gugu?key=84338d055da36b0b50d2fcd3d745e40a" class="btn" target="_blank">Apply Now <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+        <div class="offer-card">
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80" alt="HigherIncomeJobs - Cleaning Job">
+            <span class="card-badge">New</span>
+          </div>
+          <div class="card-content">
+            <h3>HigherIncomeJobs - Cleaning Job</h3>
+            <p>High-paying cleaning jobs available globally.</p>
+            <a href="https://www.profitableratecpm.com/a0e661gugu?key=84338d055da36b0b50d2fcd3d745e40a" class="btn" target="_blank">Apply Now <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Adsterra Native Banner -->
+    <div class="native-banner-container">
+      <script async="async" data-cfasync="false" src="//pl26965857.profitableratecpm.com/1800e0cc09c719aff76fdb74d30ab754/invoke.js"></script>
+      <div id="container-1800e0cc09c719aff76fdb74d30ab754"></div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer-note">
+      <p>All offers are subject to terms and conditions. Please review each offer carefully before applying.</p>
+      <p>© 2025 Global Job Offers & Rewards. All rights reserved.</p>
+    </div>
+  </div>
+
+  <script>
+    // Theme Toggle Functionality
+    const themeToggle = document.getElementById('themeToggle');
+    const body = document.body;
+
+    const savedTheme = localStorage.getItem('theme') || 
+                      (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+
+    body.setAttribute('data-theme', savedTheme);
+
+    function updateToggleIcon(theme) {
+      const icon = themeToggle.querySelector('i');
+      icon.className = theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+    }
+
+    themeToggle.addEventListener('click', () => {
+      const currentTheme = body.getAttribute('data-theme');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      body.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+      updateToggleIcon(newTheme);
+    });
+
+    // Hamburger Menu Toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const dropdownMenu = document.getElementById('dropdownMenu');
+
+    menuToggle.addEventListener('click', () => {
+      dropdownMenu.classList.toggle('show');
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!menuToggle.contains(e.target) && !dropdownMenu.contains(e.target)) {
+        dropdownMenu.classList.remove('show');
+      }
+    });
+
+    // Floating Particles Animation
+    function createParticles() {
+      const container = document.getElementById('particles') || document.body;
+      const particleCount = 30;
+      for (let i = 0; i < particleCount; i++) {
+        const particle = document.createElement('div');
+        particle.classList.add('particle');
+        const size = Math.random() * 5 + 3;
+        particle.style.width = `${size}px`;
+        particle.style.height = `${size}px`;
+        particle.style.left = `${Math.random() * 100}vw`;
+        particle.style.top = `${Math.random() * 100}vh`;
+        const duration = Math.random() * 20 + 10;
+        const delay = Math.random() * 5;
+        particle.style.animation = `float ${duration}s ease-in-out ${delay}s infinite`;
+        container.appendChild(particle);
+      }
+    }
+
+    // Initialize functions
+    document.addEventListener('DOMContentLoaded', () => {
+      createParticles();
+    });
+  </script>
+</body>
+</html>
